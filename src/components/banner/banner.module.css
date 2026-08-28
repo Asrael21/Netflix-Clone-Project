@@ -1,0 +1,32 @@
+.banner {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  height: 65vh;
+  max-height: 750px;
+  color: #ffffff;
+  background-color: #111111;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+}
+
+.contents {
+  position: relative;
+  z-index: 2;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-bottom: 2.5rem;
+  max-width: 650px;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  padding-bottom: 0.8rem;
+}

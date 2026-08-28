@@ -87,22 +87,22 @@ Source: Master Task List (T-01–T-16). Each task below is broken into concrete,
 
 ## T-10 — Banner Data Fetching & Random Selection (Sadik)
 
-- [ ] Create banner component with `useEffect` on mount
-- [ ] Call the Netflix Originals endpoint via the Axios instance (T-04)
-- [ ] Handle loading and error states for the fetch
-- [ ] Randomly select one item from the returned results array
-- [ ] Store the selected item in component state
-- [ ] Verify a new random item appears on each page reload
+- [✔️] Create banner component with `useEffect` on mount
+- [✔️] Call the Netflix Originals endpoint via the Axios instance (T-04)
+- [✔️] Handle loading and error states for the fetch
+- [✔️] Randomly select one item from the returned results array
+- [✔️] Store the selected item in component state
+- [✔️] Verify a new random item appears on each page reload
 
 ## T-11 — Banner UI & Gradient Overlay (Sadik)
 
-- [ ] Render backdrop image from the selected banner item (with fallback image from T-02 if missing)
-- [ ] Display title and truncate/clamp the description text
-- [ ] Add "Play" button
-- [ ] Add "My List" (add to list) button
-- [ ] Add bottom fade gradient overlay (CSS gradient over image)
-- [ ] Ensure text remains readable against varying backdrop images
-- [ ] Match layout to `Resources/Designs/4.BannerWithHeader.png`
+- [✔️] Render backdrop image from the selected banner item (with fallback image from T-02 if missing)
+- [✔️] Display title and truncate/clamp the description text
+- [✔️] Add "Play" button
+- [✔️] Add "My List" (add to list) button
+- [✔️] Add bottom fade gradient overlay (CSS gradient over image)
+- [✔️] Ensure text remains readable against varying backdrop images
+- [✔️] Match layout to `Resources/Designs/4.BannerWithHeader.png`
 
 ## T-12 — Multi-Category Parallel Fetching(Mussa/Israal)
 
