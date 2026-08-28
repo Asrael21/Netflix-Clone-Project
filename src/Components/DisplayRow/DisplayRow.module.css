@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .mainWrapper {
   padding-left: 2%;
   background-color: #141414;
@@ -8,3 +9,12 @@
     padding-left: 4%;
   }
 }
+=======
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 80px 2% 30px;
+  background-color: black;
+}
+>>>>>>> 3155ef4 (Update Netflix clone)

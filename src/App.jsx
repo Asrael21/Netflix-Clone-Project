@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+=======
+import { Navigate, Route, Routes } from "react-router-dom";
+>>>>>>> 3155ef4 (Update Netflix clone)
 import Layout from "./Components/Layout/Layout";
 import BrowseByLanguage from "./pages/BrowseByLanguage/BrowseByLanguage";
 import Home from "./pages/Home/Home";
@@ -14,7 +18,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
+        {/* redirect root to /home so the Home nav link's active state stays in sync */}
+        <Route index element={<Navigate to="/home" replace />} />
+        <Route path="home" element={<Home />} />
         <Route path="tv" element={<TvShows />} />
         <Route path="movies" element={<Movies />} />
         <Route path="news" element={<NewsAndPopular />} />

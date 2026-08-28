@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import styles from "./SlideShow.module.css";
 import MovieCard from "../MovieCard/MovieCard";
@@ -36,3 +37,32 @@ function SlideShow({ title, movies }) {
 }
 
 export default SlideShow;
+=======
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import Card from "../Card/Card";
+import styles from "./SlideShow.module.css";
+
+export default function SlideShow({ title, movies }) {
+  return (
+    <div className={styles.slideShow}>
+      <h2 className={styles.title}>{title}</h2>
+
+      <Swiper
+        modules={[Navigation]}
+        navigation
+        spaceBetween={10}
+        slidesPerView={5.5}
+      >
+        {movies.map((movie) => (
+          <SwiperSlide key={movie.id}>
+            <Card movie={movie} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+}
+>>>>>>> 3155ef4 (Update Netflix clone)

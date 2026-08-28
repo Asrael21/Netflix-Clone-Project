@@ -1,18 +1,12 @@
-import KillerSally from '../assets/image/10061.jpg'
-import Pepsi from '../assets/image/10066.jpg'
-import FitForTv from '../assets/image/10067.jpg'
-import champion from '../assets/image/10079.jpg'
-import TheArt from '../assets/image/10072.jpg'
-import coldStorage from '../assets/image/coldStorage.webp'
-import hamnet from '../assets/image/hamnet.webp'
-import hoppers from '../assets/image/hoppers.webp'
-import marshals from '../assets/image/marshals.webp'
-import monarch from '../assets/image/monarchLegacyOfMonsters.webp'
-import pursuit from '../assets/image/pursuitOfJade.webp'
-import scream from '../assets/image/pursuitOfJade.webp'
-import TheBride from '../assets/image/TheBride.webp'
-import Vladimir from '../assets/image/vladimir.webp'
-import YoungSherlock from '../assets/image/youngSherlock.webp'
+import KillerSally from "../assets/image/10061.jpg";
+import Pepsi from "../assets/image/10066.jpg";
+import FitForTv from "../assets/image/10067.jpg";
+import TheArt from "../assets/image/10072.jpg";
+import champion from "../assets/image/10079.jpg";
+import coldStorage from "../assets/image/coldStorage.webp";
+import hamnet from "../assets/image/hamnet.webp";
+import marshals from "../assets/image/marshals.webp";
+import monarch from "../assets/image/monarchLegacyOfMonsters.webp";
 
 export const movies = [
   {
@@ -23,7 +17,7 @@ export const movies = [
     category: "Movie",
     quality: "HD",
     genres: ["Action", "Thriller", "Adventure"],
-    badge: "Recently added"
+    badge: "Recently added",
   },
   {
     id: 2,
@@ -33,7 +27,7 @@ export const movies = [
     category: "Movie",
     quality: "HD",
     genres: ["Crime", "Drama", "Thriller"],
-    badge: "Recently added"
+    badge: "Recently added",
   },
   {
     id: 3,
@@ -43,7 +37,7 @@ export const movies = [
     category: "Movie",
     quality: "HD",
     genres: ["Sci-Fi", "Thriller", "Action"],
-    badge: "Recently added"
+    badge: "Recently added",
   },
   {
     id: 4,
@@ -53,7 +47,7 @@ export const movies = [
     category: "Movie",
     quality: "HD",
     genres: ["Adventure", "Fantasy"],
-    badge: "Recently added"
+    badge: "Recently added",
   },
   {
     id: 5,
@@ -63,7 +57,7 @@ export const movies = [
     category: "Movie",
     quality: "HD",
     genres: ["Adventure", "Fantasy"],
-    badge: "Recently added"
+    badge: "Recently added",
   },
   {
     id: 6,
@@ -73,7 +67,7 @@ export const movies = [
     category: "Movie",
     quality: "HD",
     genres: ["Adventure", "Fantasy"],
-    badge: "Recently added"
+    badge: "Recently added",
   },
   {
     id: 7,
@@ -83,7 +77,7 @@ export const movies = [
     category: "Movie",
     quality: "HD",
     genres: ["Adventure", "Fantasy"],
-    badge: "Recently added"
+    badge: "Recently added",
   },
   {
     id: 8,
@@ -93,9 +87,9 @@ export const movies = [
     category: "Movie",
     quality: "HD",
     genres: ["Adventure", "Fantasy"],
-    badge: "Recently added"
+    badge: "Recently added",
   },
-   {
+  {
     id: 9,
     title: "Marshals",
     poster_path: marshals,
@@ -103,8 +97,6 @@ export const movies = [
     category: "Movie",
     quality: "HD",
     genres: ["Adventure", "Fantasy"],
-    badge: "Recently added"
+    badge: "Recently added",
   },
-
-  
 ];

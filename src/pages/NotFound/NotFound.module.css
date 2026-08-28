@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .page {
   color: #fff;
   text-align: center;
@@ -17,3 +18,21 @@
   text-decoration: underline;
   font-size: 1rem;
 }
+=======
+.page {
+  color: #fff;
+  padding: 50px;
+  padding-top: 100px;
+  text-align: center;
+}
+
+.message {
+  color: #000;
+  font-weight: 700;
+}
+
+.homeLink {
+  color: #e50914;
+  text-decoration: underline;
+}
+>>>>>>> 3155ef4 (Update Netflix clone)

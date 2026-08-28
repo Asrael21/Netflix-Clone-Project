@@ -1,26 +1,16 @@
-# Project Setup
+# React + Vite
 
-## Environment Variables
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-This project uses a TMDB (The Movie Database) API key, which is kept out of version control for security. Follow these steps to get set up after cloning the repo:
+Currently, two official plugins are available:
 
-1. Copy the example environment file and rename it to `.env`:
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-   ```bash
-   cp .envexample .env
-   ```
+## React Compiler
 
-2. Get a free TMDB API key:
-   - Create an account at https://www.themoviedb.org/signup
-   - Go to your account **Settings > API** (https://www.themoviedb.org/settings/api)
-   - Request an API key (choose "Developer" if asked) and copy the **API Key (v3 auth)** value
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-3. Open the new `.env` file and replace the placeholder with your own key:
+## Expanding the Oxlint configuration
 
-   ```env
-   VITE_API_KEY=your_tmdb_api_key_here
-   ```
-
-4. Save the file. Do **not** commit `.env` — it should already be listed in `.gitignore`. Only `.envexample` (with placeholder values) belongs in version control.
-
-That's it — the app will pick up your key from `.env` the next time you run it.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
