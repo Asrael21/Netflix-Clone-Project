@@ -1,9 +1,27 @@
-import "./App.css";
-import Header from "./components/Header";
-import Banner from "./components/Banner";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./Components/Layout/Layout";
+import BrowseByLanguage from "./pages/BrowseByLanguage/BrowseByLanguage";
+import Home from "./pages/Home/Home";
+import Movies from "./pages/Movies/Movies";
+import MyList from "./pages/MyList/MyList";
+import NewsAndPopular from "./pages/NewsAndPopular/NewsAndPopular";
+import NotFound from "./pages/NotFound/NotFound";
+import TvShows from "./pages/TvShows/TvShows";
 
 function App() {
-  return <></>;
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="tv" element={<TvShows />} />
+        <Route path="movies" element={<Movies />} />
+        <Route path="news" element={<NewsAndPopular />} />
+        <Route path="mylist" element={<MyList />} />
+        <Route path="browse" element={<BrowseByLanguage />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
+  );
 }
 
 export default App;
