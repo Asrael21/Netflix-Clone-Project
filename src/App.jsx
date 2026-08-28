@@ -1,10 +1,3 @@
-import Banner from "./components/banner/banner";
-
-function App() {
-  return (
-    <>
-      <Banner />
-    </>
 import { Route, Routes } from "react-router-dom";
 import Layout from "./Components/Layout/Layout";
 import BrowseByLanguage from "./pages/BrowseByLanguage/BrowseByLanguage";
