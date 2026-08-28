@@ -1,25 +1,8 @@
-<<<<<<< HEAD
 .layout {
   min-height: 100vh;
   background-color: #141414;
 }
 
 .main {
-  min-height: 40vh;
-  padding: 40px 4% 60px;
-}
-
-@media (max-width: 767px) {
-  .main {
-    padding: 24px 4% 40px;
-  }
-}
-=======
-.layout {
-  min-height: 100vh;
-}
-
-.main {
   min-height: 60vh;
 }
->>>>>>> 3155ef4 (Update Netflix clone)

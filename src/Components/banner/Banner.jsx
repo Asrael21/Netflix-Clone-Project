@@ -60,7 +60,7 @@ export default function Banner() {
 
         {/* button */}
         <div className={styles.buttonContainer}>
-          <button className={styles.button}>
+          <button className={`${styles.button} ${styles.playButton}`}>
             <Play size={30} /> Play
           </button>
           <button className={styles.button}>

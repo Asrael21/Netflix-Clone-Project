@@ -1,186 +1,421 @@
-<<<<<<< HEAD
-/* ── Base (desktop 1024px+) ─────────────────────────────── */
+/* ── Base ────────────────────────────────────────────────── */
 .header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  inset: 0 0 auto;
   z-index: 1000;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 10%, transparent);
-  transition: background-color 0.4s ease;
+
+  width: 100%;
+  padding-block: 20px;
+
+  color: #f5f5f1;
+  font-family: "Netflix Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, transparent 100%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  transition: background 0.4s ease;
 }
 
 .scrolled {
-  background-color: #141414;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
+/* ── Container ───────────────────────────────────────────── */
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 4%;
-  height: 68px;
+
+  width: min(calc(100% - 32px), 1920px);
+  margin-inline: auto;
+  gap: clamp(20px, 3vw, 40px);
+}
+
+/* ── Logo ────────────────────────────────────────────────── */
+.logo {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+
+  width: 100px;
+  height: 30px;
+
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+  opacity: 0.8;
 }
 
 .logo img {
-  height: 25px;
-  cursor: pointer;
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
+/* ── Navigation ──────────────────────────────────────────── */
 .nav {
   display: flex;
-  gap: 20px;
+  flex: 1;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
 }
 
 .navLink {
-  color: #e5e5e5;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
   text-decoration: none;
-  font-size: 14px;
   white-space: nowrap;
-  transition: color 0.3s ease;
+
+  padding: 7px 14px;
+  border-radius: 999px;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
 }
 
-.navLink:hover,
-.active {
+.navLink:hover {
   color: #ffffff;
-  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
+/* Active pill — white background with dark text (Netflix style) */
+.active,
+.active:hover {
+  color: #141414;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* ── Right-side actions ──────────────────────────────────── */
 .actions {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   gap: 20px;
-  color: white;
 }
 
+/* ── Search ──────────────────────────────────────────────── */
 .searchContainer {
+  position: relative;
   display: flex;
   align-items: center;
-  position: relative;
+
+  height: 40px;
+
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    border-radius 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.searchButton,
-.notificationButton,
-.profileButton {
+/* Expanded state when input is visible */
+.searchContainer:has(.searchInput) {
+  background: #181818;
+  border-color: rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+}
+
+.searchContainer:has(.searchInput):hover {
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.searchContainer:has(.searchInput):focus-within {
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.searchButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  padding: 0;
+
   background: transparent;
   border: none;
-  color: white;
+  border-radius: 999px;
+  color: #f5f5f1;
   cursor: pointer;
-  display: flex;
-  align-items: center;
+
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.searchButton:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 .searchInput {
-  background: rgba(0, 0, 0, 0.75);
-  border: 1px solid white;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 4px;
-  margin-left: 8px;
+  flex: 1;
+
+  min-width: 0;
+  width: 260px;
+  height: 38px;
+
+  padding: 0 16px 0 0;
+
+  background: transparent;
+  border: none;
   outline: none;
+
+  color: #fff;
+
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+
+  caret-color: #fff;
 }
 
+.searchInput::placeholder {
+  color: #808080;
+  opacity: 1;
+}
+
+/* ── Notification ────────────────────────────────────────── */
 .notificationButton {
   position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  padding: 0;
+
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: #f5f5f1;
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.notificationButton:hover {
+  color: #b3b3b3;
 }
 
 .notificationCount {
   position: absolute;
-  top: -4px;
-  right: -6px;
+  top: 2px;
+  right: 2px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 14px;
+  height: 14px;
+  padding-inline: 3px;
+
+  color: #ffffff;
   background-color: #e50914;
-  color: white;
-  font-size: 10px;
-  border-radius: 50%;
-  padding: 2px 5px;
+  border-radius: 999px;
+
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
 }
 
+/* ── Profile ─────────────────────────────────────────────── */
 .profileContainer {
   position: relative;
 }
 
 .profileButton {
-  gap: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: #f5f5f1;
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.profileButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .userIcon {
-  background-color: #e50914;
-  border-radius: 4px;
-  padding: 2px;
-  display: flex;
+  display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  color: #f5f5f1;
+  background-color: #564d4d;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .profileDropdown {
   position: absolute;
-  top: 40px;
+  top: 100%;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.9);
-  border: 1px solid #333;
+  margin-top: 8px;
+
+  min-width: 180px;
+
+  background-color: rgba(0, 0, 0, 0.92);
+  border: 1px solid #404040;
   border-radius: 4px;
-  width: 150px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+
   display: flex;
   flex-direction: column;
-  padding: 10px 0;
+  padding: 4px 0;
+
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .dropdownItem {
-  color: white;
-  padding: 8px 15px;
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+
+  color: #f5f5f5;
+  font-size: 14px;
+  font-family: inherit;
+  text-align: left;
   text-decoration: none;
-  font-size: 13px;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease;
 }
 
 .dropdownItem:hover {
-  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .dropdownDivider {
+  margin: 8px 0;
   border: none;
-  border-top: 1px solid #333;
-  margin: 5px 0;
+  border-top: 1px solid #404040;
 }
 
-/* Hidden on mobile */
+/* ── Keyboard focus ──────────────────────────────────────── */
+.logo:focus-visible,
+.navLink:focus-visible,
+.searchButton:focus-visible,
+.notificationButton:focus-visible,
+.profileButton:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+/* ── Desktop-only helper ─────────────────────────────────── */
+.desktopOnly {
+  display: flex;
+}
+
+/* ── Hamburger (mobile only) ─────────────────────────────── */
 .hamburger {
   display: none;
-  background: transparent;
-  border: none;
-  color: white;
-  cursor: pointer;
-  padding: 4px;
   align-items: center;
   justify-content: center;
+
+  padding: 6px;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: #f5f5f1;
+  cursor: pointer;
+
+  transition: color 0.2s ease;
 }
 
-/* Mobile nav drawer — hidden on desktop */
+.hamburger:hover {
+  color: #b3b3b3;
+}
+
+/* ── Mobile nav drawer ───────────────────────────────────── */
 .mobileMenu {
   display: none;
 }
 
-/* ── Tablet (768px – 1023px) ─────────────────────────────── */
-@media (max-width: 1023px) {
-  .nav {
-    gap: 10px;
+/* ── Tablet (≤ 900px) ────────────────────────────────────── */
+@media (max-width: 900px) {
+  .container {
+    gap: 20px;
   }
 
-  .navLink {
-    font-size: 12px;
+  .nav {
+    gap: 2px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
   }
 
   .actions {
     gap: 12px;
   }
-
-  .logo img {
-    height: 22px;
-  }
 }
 
 /* ── Mobile (≤ 767px) ────────────────────────────────────── */
 @media (max-width: 767px) {
+  .header {
+    padding-block: 14px;
+  }
+
+  .container {
+    width: calc(100% - 24px);
+    gap: 16px;
+  }
+
+  .logo {
+    width: 84px;
+    height: 26px;
+  }
+
   .nav {
     display: none;
   }
@@ -189,16 +424,13 @@
     display: none;
   }
 
+  .actions {
+    margin-left: auto;
+    gap: 8px;
+  }
+
   .hamburger {
     display: flex;
-  }
-
-  .logo img {
-    height: 18px;
-  }
-
-  .actions {
-    gap: 12px;
   }
 
   .mobileMenu {
@@ -211,11 +443,12 @@
 
   .mobileNavLink {
     color: #e5e5e5;
-    text-decoration: none;
     font-size: 15px;
+    text-decoration: none;
     padding: 12px 4%;
-    transition: background-color 0.2s ease, color 0.2s ease;
     display: block;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   .mobileNavLink:hover {
@@ -230,283 +463,15 @@
     padding-left: calc(4% - 3px);
   }
 }
-=======
-.header {
-  background: #000000;
-  padding: 16px 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  backdrop-filter: blur(3px); /* Add a blur effect to the background */
-  transition: background-color 0.3s ease;
-}
 
-.scrolled {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1920px;
-  margin: 0 auto;
-  padding: 0 40px;
-  gap: 40px;
-}
-
-.logo {
-  flex-shrink: 0;
-  width: 100px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.logo:hover {
-  opacity: 0.8;
-}
-
-.logo img {
-  height: 30px;
-}
-
-.nav {
-  display: flex;
-  gap: 32px;
-  flex: 1; /* Allow nav to grow and take available space */
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.navLink {
-  color: #f5f5f1;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: color 0.3s ease; /* Smooth transition for hover effect */
-  white-space: nowrap;
-}
-
-.navLink:hover {
-  color: #b3b3b0;
-}
-
-.navLink.active {
-  color: #ffffff;
-  font-weight: bold;
-}
-
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex: 0; /* Prevent actions from growing */
-}
-
-.searchContainer {
-  position: relative; /* Position the search container relative to its parent */
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.searchInput {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid #808080;
-  color: #f5f5f1;
-  padding: 8px 10px;
-  border-radius: 4px;
-  font-size: 14px;
-  width: 200px;
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-.searchInput:focus {
-  outline: none;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-color: #f5f5f1;
-}
-
-.searchInput::placeholder {
-  color: #808080;
-}
-
-.searchButton {
-  background: none;
-  border: none;
-  color: #f5f5f1;
-  cursor: pointer;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.3s ease;
-}
-
-.searchButton:hover {
-  color: #b3b3b0;
-}
-
-.notificationButton {
-  position: relative;
-  background: none;
-  border: none;
-  color: #f5f5f1;
-  cursor: pointer;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.3s ease;
-}
-
-.notificationCount {
-  position: absolute; /* Position the notification count relative to its nearest positioned ancestor (in our case, the notification button) */
-  top: -4px; /* Position the count slightly above the button */
-  right: -4px;
-  background-color: red;
-  color: white;
-  border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.profileContainer {
-  position: relative;
-}
-
-.profileButton {
-  background: none;
-  border: none;
-  color: #f5f5f1;
-  cursor: pointer;
-  padding: 4px;
-  border-radius: 4px;
-  display: flex;
-  transition: color 0.3s ease;
-}
-
-.profileButton:hover {
-  background-color: rgba(255, 255, 255, 0);
-}
-
-.userIcon {
-  width: 32px;
-  height: 32px;
-  background-color: #564d4d;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #f5f5f1;
-  font-size: 16px;
-}
-
-.profileDropdown {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  margin-top: 8px;
-  background-color: rgba(0, 0, 0, 0.9);
-  border: 1px solid #404040;
-  border-radius: 4px;
-  min-width: 90px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-  animation: slideDown 0.2s ease-out;
-  display: flex;
-  flex-direction: column;
-  padding: 4px 0;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+/* ── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .navLink,
+  .searchButton,
+  .notificationButton,
+  .profileButton,
+  .hamburger {
+    transition: none;
   }
 }
-
-.dropdownItem {
-  display: block;
-  width: 100%;
-  padding: 8px 12px;
-  color: #f5f5f1;
-  text-align: left;
-  background: none;
-  border: none;
-  cursor: pointer;
-  line-height: 1.2;
-  font-size: 14px;
-  transition: background-color 0.2s ease;
-  text-decoration: none;
-}
-
-.dropdownItem:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.dropdownDivider {
-  border: none;
-  border-top: 1px solid #404040;
-  margin: 8px 0;
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .container {
-    padding: 0 24px;
-    gap: 24px;
-  }
-
-  .nav {
-    gap: 16px;
-  }
-
-  .navLink {
-    font-size: 13px;
-  }
-
-  .searchInput {
-    width: 150px;
-  }
-  .actions {
-    gap: 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  .header {
-    padding: 12px 0;
-  }
-
-  .container {
-    flex-wrap: wrap;
-    padding: 0 16px;
-    gap: 14px;
-  }
-
-  .logo {
-    margin-right: auto;
-  }
-
-  .nav {
-    order: 3;
-    flex-basis: 100%;
-    gap: 12px 16px;
-  }
-
-  .actions {
-    margin-left: auto;
-  }
-}
->>>>>>> 3155ef4 (Update Netflix clone)

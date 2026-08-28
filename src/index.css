@@ -1,3 +1,13 @@
+:root {
+  --netflix-red: #e50914;
+  --bg-dark: #141414;
+  --bg-card: #181818;
+  --text-primary: #ffffff;
+  --text-muted: #808080;
+  --transition: 0.2s ease;
+  --border-subtle: #404040;
+}
+
 *,
 *::before,
 *::after {
@@ -7,8 +17,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #141414;
-  color: #ffffff;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: "Netflix Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }

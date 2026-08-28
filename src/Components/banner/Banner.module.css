@@ -1,14 +1,20 @@
 .banner {
+  position: relative;
   color: white;
-  object-fit: contain;
   background-image: url("../../assets/image/banner.jpeg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
+  height: 56.25vw;
+  min-height: 480px;
+  max-height: 800px;
+  overflow: hidden;
 }
 
 .content {
+  position: relative;
+  z-index: 1;
   padding-left: 15px;
   padding-top: 330px;
 }
@@ -41,19 +47,28 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   gap: 8px;
-  color: black;
-  outline: none;
+
+  padding: 0.75rem 1.75rem;
+
   border: none;
+  border-radius: 999px;
+
+  font-size: 1rem;
   font-weight: 700;
-  border-radius: 0.2vw;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  margin-right: 1rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  background-color: white;
+
+  cursor: pointer;
+  outline: none;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Play button */
+.playButton {
+  color: #000;
+  background-color: #fff;
 }
 
 .button:hover {
@@ -63,11 +78,11 @@
 }
 
 .fadingEffect {
-  height: 100vh;
-  background-image: linear-gradient(
-    180deg,
-    transparent,
-    rgba(37, 37, 37, 0.61)
-  );
-  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background-image: linear-gradient(180deg, transparent, rgba(20, 20, 20, 0.95));
+  pointer-events: none;
 }

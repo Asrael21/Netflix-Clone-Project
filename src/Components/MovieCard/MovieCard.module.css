@@ -120,10 +120,28 @@
 .metaRow {
   color: white;
   display: flex;
-  gap: 10px;
-  margin: 8px 12px;
-  font-size: 14px;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 12px 4px;
+  font-size: 13px;
   font-weight: 500;
+  flex-wrap: wrap;
+}
+
+.matchScore {
+  color: #46d369;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.title {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 12px 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .dot {

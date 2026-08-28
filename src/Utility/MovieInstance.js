@@ -2,8 +2,10 @@ import axios from "axios";
 
 const movieInstance = axios.create({
   baseURL: "https://api.themoviedb.org/3",
+  params: {
+    api_key: import.meta.env.VITE_TMDB_API_KEY,
+    language: "en-US",
+  },
 });
 
 export { movieInstance };
-
-// https://api.themoviedb.org/3/discover/movie?api_key=b33da15fb726a97ac2874d63f7df0e4f&with_genres=99
