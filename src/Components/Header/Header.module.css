@@ -1,9 +1,9 @@
+/* ── Base (desktop 1024px+) ─────────────────────────────── */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 68px;
   z-index: 1000;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 10%, transparent);
   transition: background-color 0.4s ease;
@@ -18,7 +18,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 4%;
-  height: 100%;
+  height: 68px;
 }
 
 .logo img {
@@ -36,6 +36,7 @@
   color: #e5e5e5;
   text-decoration: none;
   font-size: 14px;
+  white-space: nowrap;
   transition: color 0.3s ease;
 }
 
@@ -139,4 +140,92 @@
   border: none;
   border-top: 1px solid #333;
   margin: 5px 0;
+}
+
+/* Hidden on mobile */
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile nav drawer — hidden on desktop */
+.mobileMenu {
+  display: none;
+}
+
+/* ── Tablet (768px – 1023px) ─────────────────────────────── */
+@media (max-width: 1023px) {
+  .nav {
+    gap: 10px;
+  }
+
+  .navLink {
+    font-size: 12px;
+  }
+
+  .actions {
+    gap: 12px;
+  }
+
+  .logo img {
+    height: 22px;
+  }
+}
+
+/* ── Mobile (≤ 767px) ────────────────────────────────────── */
+@media (max-width: 767px) {
+  .nav {
+    display: none;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .logo img {
+    height: 18px;
+  }
+
+  .actions {
+    gap: 12px;
+  }
+
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    background-color: #141414;
+    border-top: 1px solid #2a2a2a;
+    padding: 8px 0 16px;
+  }
+
+  .mobileNavLink {
+    color: #e5e5e5;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 12px 4%;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    display: block;
+  }
+
+  .mobileNavLink:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .mobileActive {
+    color: #ffffff;
+    font-weight: 600;
+    border-left: 3px solid #e50914;
+    padding-left: calc(4% - 3px);
+  }
 }

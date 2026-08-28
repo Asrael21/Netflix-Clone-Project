@@ -1,15 +1,19 @@
 .page {
   color: #fff;
-  padding: 50px;
   text-align: center;
+  padding-top: 60px;
 }
 
 .message {
-  color: #000;
+  font-size: clamp(1.6rem, 5vw, 2.5rem);
   font-weight: 700;
+  margin-bottom: 16px;
 }
 
 .homeLink {
+  display: inline-block;
+  margin-top: 24px;
   color: #e50914;
   text-decoration: underline;
+  font-size: 1rem;
 }

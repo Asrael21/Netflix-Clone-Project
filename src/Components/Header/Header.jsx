@@ -1,93 +1,63 @@
-import { Bell, ChevronDown, Search, User } from "lucide-react";
+import { Bell, ChevronDown, Menu, Search, User, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/image/logo.png";
 import styles from "./Header.module.css";
+
+const navLinks = [
+  { to: "/", label: "Home" },
+  { to: "/tv", label: "TV Shows" },
+  { to: "/movies", label: "Movies" },
+  { to: "/news", label: "New & Popular" },
+  { to: "/mylist", label: "My List" },
+  { to: "/browse", label: "Browse by Languages" },
+];
 
 export default function Header() {
   const [showSearch, setShowSearch] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
+    setIsMobileMenuOpen(false);
+    setIsProfileOpen(false);
+  }, [location]);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
-        {/* ---- logo ---- */}
+        {/* Logo */}
         <div className={styles.logo}>
           <Link to="/">
             <img src={logo} alt="Netflix Logo" />
           </Link>
         </div>
 
-        {/* ---- nav-links ---- */}
+        {/* Desktop / tablet nav */}
         <nav className={styles.nav}>
-          <NavLink
-            className={({ isActive }) =>
-              `${styles.navLink} ${isActive ? styles.active : ""}`
-            }
-            to="/"
-          >
-            Home
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              `${styles.navLink} ${isActive ? styles.active : ""}`
-            }
-            to="/tv"
-          >
-            Tv Shows
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              `${styles.navLink} ${isActive ? styles.active : ""}`
-            }
-            to="/movies"
-          >
-            Movies
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              `${styles.navLink} ${isActive ? styles.active : ""}`
-            }
-            to="/news"
-          >
-            New & Popular
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              `${styles.navLink} ${isActive ? styles.active : ""}`
-            }
-            to="/mylist"
-          >
-            My List
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              `${styles.navLink} ${isActive ? styles.active : ""}`
-            }
-            to="/browse"
-          >
-            Browse by Languages
-          </NavLink>
+          {navLinks.map(({ to, label }) => (
+            <NavLink
+              key={to}
+              className={({ isActive }) =>
+                `${styles.navLink} ${isActive ? styles.active : ""}`
+              }
+              to={to}
+            >
+              {label}
+            </NavLink>
+          ))}
         </nav>
 
-        {/* ---- search, notifications, profile ---- */}
+        {/* Actions */}
         <div className={styles.actions}>
-          {/* search */}
           <div className={styles.searchContainer}>
             <button
               className={styles.searchButton}
@@ -106,14 +76,12 @@ export default function Header() {
             )}
           </div>
 
-          {/* notifications */}
-          <button className={styles.notificationButton}>
+          <button className={`${styles.notificationButton} ${styles.desktopOnly}`}>
             <Bell size={20} />
             <span className={styles.notificationCount}>4</span>
           </button>
 
-          {/* profile */}
-          <div className={styles.profileContainer}>
+          <div className={`${styles.profileContainer} ${styles.desktopOnly}`}>
             <button
               className={styles.profileButton}
               onClick={() => setIsProfileOpen((prev) => !prev)}
@@ -125,21 +93,41 @@ export default function Header() {
             </button>
             {isProfileOpen && (
               <div className={styles.profileDropdown}>
-                <Link to="#" className={styles.dropdownItem}>
-                  Account
-                </Link>
-                <Link to="#" className={styles.dropdownItem}>
-                  Help Center
-                </Link>
+                <Link to="#" className={styles.dropdownItem}>Account</Link>
+                <Link to="#" className={styles.dropdownItem}>Help Center</Link>
                 <hr className={styles.dropdownDivider} />
-                <Link to="#" className={styles.dropdownItem}>
-                  Sign Out
-                </Link>
+                <Link to="#" className={styles.dropdownItem}>Sign Out</Link>
               </div>
             )}
           </div>
+
+          {/* Hamburger — mobile only */}
+          <button
+            className={styles.hamburger}
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile nav drawer */}
+      {isMobileMenuOpen && (
+        <nav className={styles.mobileMenu}>
+          {navLinks.map(({ to, label }) => (
+            <NavLink
+              key={to}
+              className={({ isActive }) =>
+                `${styles.mobileNavLink} ${isActive ? styles.mobileActive : ""}`
+              }
+              to={to}
+            >
+              {label}
+            </NavLink>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }

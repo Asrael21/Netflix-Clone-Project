@@ -1,8 +1,8 @@
 .banner {
   position: relative;
   width: 100%;
-  min-height: 480px;
   height: 65vh;
+  min-height: 480px;
   max-height: 750px;
   color: #ffffff;
   background-color: #111111;
@@ -25,8 +25,37 @@
 }
 
 .title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
   font-weight: 800;
   line-height: 1.15;
   padding-bottom: 0.8rem;
+}
+
+/* ── Tablet ─────────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  .banner {
+    height: 60vh;
+    min-height: 380px;
+  }
+
+  .contents {
+    max-width: 500px;
+    margin-bottom: 2rem;
+  }
+}
+
+/* ── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .banner {
+    height: 50vh;
+    min-height: 280px;
+  }
+
+  .contents {
+    margin-bottom: 1.5rem;
+  }
+
+  .title {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+  }
 }

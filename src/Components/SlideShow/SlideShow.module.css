@@ -1,125 +1,108 @@
 .title {
-	color: white;
-	font-size: 22px;
-	margin: 0 0 8px 0;
-	padding-top: 12px;
+  color: white;
+  font-size: 22px;
+  margin: 0 0 8px 0;
+  padding-top: 12px;
 }
 
-/* Cancel out DisplayRow's mainWrapper padding-left (2%) so the row
-   reaches the true left edge; mainWrapper has no padding-right, so the
-   right edge is already flush and needs no adjustment. */
 .Row {
-	position: relative;
-	margin-left: -2%;
+  position: relative;
+  margin-left: -2%;
 }
 
-/* Swiper container - height/padding scale down per breakpoint to match
-   the slidesPerView/spaceBetween set in SlideShow.jsx */
 .Row :global(.swiper) {
-	height: 265px;
-	padding: 0 50px;
+  height: 265px;
+  padding: 0 50px;
 }
 
-/* Slides */
 .Row :global(.swiper-slide) {
-	display: flex;
-	align-items: center;
-	height: 100%; /* remove 130% */
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
-/* Navigation buttons base style */
 .Row :global(.swiper-button-prev),
 .Row :global(.swiper-button-next) {
-	background: transparent !important;
-	color: white !important;
-	opacity: 0;
-	pointer-events: none;
-	transition: opacity 0.3s ease;
-	top: 50%;
-	transform: translateY(-50%);
+  background: transparent !important;
+  color: white !important;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-/* Smaller arrow icon */
 .Row :global(.swiper-button-prev::after),
 .Row :global(.swiper-button-next::after) {
-	font-size: 14px !important;
+  font-size: 14px !important;
 }
 
-/* Show on hover */
 .Row:hover :global(.swiper-button-prev),
 .Row:hover :global(.swiper-button-next) {
-	opacity: 1;
-	pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
 
-/* --- Responsive breakpoints (mirrors the Swiper breakpoints in SlideShow.jsx) --- */
-
-/* Tablet */
 @media (max-width: 1023px) {
-	.title {
-		font-size: 19px;
-	}
+  .title {
+    font-size: 19px;
+  }
 
-	.Row :global(.swiper) {
-		height: 210px;
-		padding: 0 30px;
-	}
+  .Row :global(.swiper) {
+    height: 210px;
+    padding: 0 30px;
+  }
 }
 
-/* Large phone */
 @media (max-width: 767px) {
-	.title {
-		font-size: 16px;
-		padding-top: 8px;
-	}
+  .title {
+    font-size: 16px;
+    padding-top: 8px;
+  }
 
-	/* mainWrapper's padding-left becomes 4% at this breakpoint */
-	.Row {
-		margin-left: -4%;
-	}
+  .Row {
+    margin-left: -4%;
+  }
 
-	.Row :global(.swiper) {
-		height: 150px;
-		padding: 0 16px;
-	}
+  .Row :global(.swiper) {
+    height: 150px;
+    padding: 0 16px;
+  }
 
-	/* Hover never fires on touch devices, so keep arrows visible instead
-	   of hover-triggered, just smaller so they don't dominate the row. */
-	.Row :global(.swiper-button-prev),
-	.Row :global(.swiper-button-next) {
-		opacity: 1;
-		pointer-events: auto;
-		width: 24px;
-		height: 24px;
-		background: rgba(20, 20, 20, 0.5) !important;
-		border-radius: 50%;
-	}
+  .Row :global(.swiper-button-prev),
+  .Row :global(.swiper-button-next) {
+    opacity: 1;
+    pointer-events: auto;
+    width: 24px;
+    height: 24px;
+    background: rgba(20, 20, 20, 0.5) !important;
+    border-radius: 50%;
+  }
 
-	.Row :global(.swiper-button-prev::after),
-	.Row :global(.swiper-button-next::after) {
-		font-size: 11px !important;
-	}
+  .Row :global(.swiper-button-prev::after),
+  .Row :global(.swiper-button-next::after) {
+    font-size: 11px !important;
+  }
 }
 
-/* Small phone */
 @media (max-width: 479px) {
-	.title {
-		font-size: 14px;
-	}
+  .title {
+    font-size: 14px;
+  }
 
-	.Row :global(.swiper) {
-		height: 110px;
-		padding: 0 10px;
-	}
+  .Row :global(.swiper) {
+    height: 110px;
+    padding: 0 10px;
+  }
 
-	.Row :global(.swiper-button-prev),
-	.Row :global(.swiper-button-next) {
-		width: 20px;
-		height: 20px;
-	}
+  .Row :global(.swiper-button-prev),
+  .Row :global(.swiper-button-next) {
+    width: 20px;
+    height: 20px;
+  }
 
-	.Row :global(.swiper-button-prev::after),
-	.Row :global(.swiper-button-next::after) {
-		font-size: 9px !important;
-	}
+  .Row :global(.swiper-button-prev::after),
+  .Row :global(.swiper-button-next::after) {
+    font-size: 9px !important;
+  }
 }
