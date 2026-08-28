@@ -1,3 +1,12 @@
+import "./App.css";
+import MovieCard from "./Component/MovieCard";
+//import Header from "./components/Header";
+//import Banner from "./components/Banner";
+
+function App() {
+  return <>
+  <MovieCard />
+  </>;
 import { Route, Routes } from "react-router-dom";
 import Layout from "./Components/Layout/Layout";
 import BrowseByLanguage from "./pages/BrowseByLanguage/BrowseByLanguage";
