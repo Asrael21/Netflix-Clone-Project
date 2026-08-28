@@ -1,0 +1,10 @@
+.mainWrapper {
+	padding-left: 2%;
+	background-color: black;
+}
+
+@media (max-width: 767px) {
+	.mainWrapper {
+		padding-left: 4%;
+	}
+}

@@ -1,4 +1,12 @@
 import "./App.css";
+import DisplayRow from "./Components/DisplayRow/DisplayRow";
+// import Header from "./components/Header";
+// import Banner from "./components/Banner";
+
+function App() {
+	return <>
+		<DisplayRow/>
+	</>;
 
 //import Header from "./components/Header";
 //import Banner from "./components/Banner";

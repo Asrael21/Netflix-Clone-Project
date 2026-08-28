@@ -106,22 +106,22 @@ Source: Master Task List (T-01–T-16). Each task below is broken into concrete,
 
 ## T-12 — Multi-Category Parallel Fetching(Mussa/Israal)
 
-- [ ] Define the list of category/genre endpoints to fetch (from `requestUrls.js`)
-- [ ] In `DisplayRow.jsx`, build an array of fetch promises for each category
-- [ ] Use `Promise.all` to fetch all categories concurrently
-- [ ] Store results in state, keyed by category name
-- [ ] Handle loading state while fetches are in flight
-- [ ] Handle partial/total failure gracefully (error boundary or fallback UI)
+- [ ✔️] Define the list of category/genre endpoints to fetch (from `requestUrls.js`)
+- [✔️ ] In `DisplayRow.jsx`, build an array of fetch promises for each category
+- [✔️ ] Use `Promise.all` to fetch all categories concurrently
+- [✔️] Store results in state, keyed by category name
+- [] Handle loading state while fetches are in flight
+- [] Handle partial/total failure gracefully (error boundary or fallback UI)
 
 ## T-13 — SlideShow Swiper Carousel(Mussa/Israal)
 
-- [ ] Create a reusable `Carousel`/`SlideShow` component wrapping `swiper`
-- [ ] Configure Swiper options (slides per view, spacing, breakpoints for responsiveness)
-- [ ] Add custom navigation arrows (prev/next)
-- [ ] Show arrows only on row hover (CSS opacity/visibility transition)
-- [ ] Wire the carousel to accept a list of movies as props
-- [ ] Test with multiple rows to confirm independent carousel state per row
-- [ ] Match interaction/style to `Resources/Designs/5.Row.png`
+- [ ✔️] Create a reusable `Carousel`/`SlideShow` component wrapping `swiper`
+- [✔️ ] Configure Swiper options (slides per view, spacing, breakpoints for responsiveness)
+- [ ✔️] Add custom navigation arrows (prev/next)
+- [  ✔️] Show arrows only on row hover (CSS opacity/visibility transition)
+- [ ✔️] Wire the carousel to accept a list of movies as props
+- [ ✔️] Test with multiple rows to confirm independent carousel state per row
+- [ ✔️] Match interaction/style to `Resources/Designs/5.Row.png`
 
 ## T-14 — MovieCard Component & Hover Preview (Mussa/Israal)
 
