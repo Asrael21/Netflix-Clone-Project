@@ -3,12 +3,14 @@ import Banner from "../Banner/Banner";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import styles from "./Layout.module.css";
+import MovieCard from "../MovieCard/MovieCard";
 
 const Layout = () => {
   return (
     <div className={styles.layout}>
       <Header />
       <Banner />
+      <MovieCard/>
       <main className={styles.main}>
         <Outlet />
       </main>
