@@ -1,15 +1,10 @@
 import "./App.css";
-import DisplayRow from "./Components/DisplayRow/DisplayRow";
-// import Header from "./components/Header";
-// import Banner from "./components/Banner";
+// import DisplayRow from "./Components/DisplayRow/DisplayRow";
 
-function App() {
-	return <>
-		<DisplayRow/>
-	</>;
 
-//import Header from "./components/Header";
-//import Banner from "./components/Banner";
+
+
+
 
 
 import { Route, Routes } from "react-router-dom";

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./DisplayRow.module.css";
 import SlideShow from "../SlideShow/SlideShow";
-import movieInstance from "../../Utility/MovieInstance.js";
+import { movieInstance } from "../../Utility/MovieInstance.js";
 import requests from "../../Utility/requestUrls.js";
 
 function DisplayRow() {
@@ -60,10 +60,14 @@ function DisplayRow() {
 	return (
 		<div className={styles.mainWrapper}>
 			{/* Notice we are passing the specific array properties */}
-			<SlideShow title="Netflix trending" movies={movies.trending} />
+			<SlideShow title="Netflix Trending" movies={movies.trending} />
 			<SlideShow title="Popular on Netflix" movies={movies.netflixOriginals} />
-			<SlideShow title="Action" movies={movies.action} />
 			<SlideShow title="Top Rated" movies={movies.topRated} />
+			<SlideShow title="Action" movies={movies.action} />
+			<SlideShow title="Comedy" movies={movies.comedy} />
+			<SlideShow title="Horror" movies={movies.horror} />
+			<SlideShow title="Romance" movies={movies.romance} />
+			<SlideShow title="Documentaries" movies={movies.documentaries} />
 		</div>
 	);
 }
