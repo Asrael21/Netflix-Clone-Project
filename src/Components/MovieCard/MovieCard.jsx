@@ -1,8 +1,9 @@
-import styles from "./MovieCard.module.css";
-import { FaCirclePlay } from "react-icons/fa6";
 import { BsPlusCircle } from "react-icons/bs";
+import { FaCirclePlay } from "react-icons/fa6";
 import { GoCheckCircleFill } from "react-icons/go";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
+import { usePlayer } from "../../context/usePlayer";
+import styles from "./MovieCard.module.css";
 
 const IMAGE_BASE = "https://image.tmdb.org/t/p/w500";
 const FALLBACK_IMG = "https://placehold.co/227x128/141414/808080?text=No+Image";
@@ -16,13 +17,39 @@ const GENRE_MAP = {
 };
 
 function MovieCard({ movie }) {
+  const { playMovie } = usePlayer();
   const title = movie?.title || movie?.name || "Untitled";
   const genres = movie?.genre_ids?.slice(0, 3).map((id) => GENRE_MAP[id]).filter(Boolean) || [];
   const score = movie?.vote_average ? `${Math.round(movie.vote_average * 10)}% Match` : null;
   const posterSrc = movie?.poster_path ? `${IMAGE_BASE}${movie.poster_path}` : FALLBACK_IMG;
 
+  const handleCardClick = () => {
+    if (movie) {
+      playMovie(movie);
+    }
+  };
+
+  const handlePlayClick = (e) => {
+    e.stopPropagation();
+    if (movie) {
+      playMovie(movie);
+    }
+  };
+
   return (
-    <div className={styles.cardWrapper}>
+    <div
+      className={styles.cardWrapper}
+      onClick={handleCardClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleCardClick();
+        }
+      }}
+      aria-label={`Play trailer for ${title}`}
+    >
       <img
         className={styles.poster}
         src={posterSrc}
@@ -35,16 +62,41 @@ function MovieCard({ movie }) {
           className={styles.hoverImage}
           src={posterSrc}
           alt={title}
+          onClick={handlePlayClick}
           onError={(e) => { e.currentTarget.src = FALLBACK_IMG; }}
         />
 
         <div className={styles.badge}>Recently added</div>
 
         <div className={styles.buttonsRow}>
-          <FaCirclePlay className={styles.circleButton} color="white" size={30} />
-          <BsPlusCircle className={styles.circleButton} color="white" size={30} />
-          <GoCheckCircleFill className={styles.circleButton} color="white" size={30} />
-          <IoIosArrowDropdownCircle className={styles.circleButtonSmall} color="white" size={30} />
+          <FaCirclePlay
+            className={styles.circleButton}
+            color="white"
+            size={30}
+            onClick={handlePlayClick}
+            title="Play trailer"
+          />
+          <BsPlusCircle
+            className={styles.circleButton}
+            color="white"
+            size={30}
+            onClick={(e) => e.stopPropagation()}
+            title="Add to My List"
+          />
+          <GoCheckCircleFill
+            className={styles.circleButton}
+            color="white"
+            size={30}
+            onClick={(e) => e.stopPropagation()}
+            title="Rate"
+          />
+          <IoIosArrowDropdownCircle
+            className={styles.circleButtonSmall}
+            color="white"
+            size={30}
+            onClick={handlePlayClick}
+            title="Episode & Info"
+          />
         </div>
 
         <div className={styles.metaRow}>

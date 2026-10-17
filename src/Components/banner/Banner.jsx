@@ -1,6 +1,7 @@
 import { Info, Play } from "lucide-react";
 import { useEffect, useState } from "react";
 import bannerLogo from "../../assets/image/logo.png";
+import { usePlayer } from "../../context/usePlayer";
 import { movieInstance } from "../../Utility/MovieInstance";
 import requests from "../../Utility/requestUrls";
 import styles from "./Banner.module.css";
@@ -14,6 +15,12 @@ function truncate(str, length) {
 
 export default function Banner() {
   const [movie, setMovie] = useState(null);
+  const { playMovie } = usePlayer();
+
+  const handlePlay = () => {
+    const targetMovie = movie || { title: "Bridgerton", name: "Bridgerton" };
+    playMovie(targetMovie);
+  };
 
   useEffect(() => {
     const fetchBannerMovie = async () => {
@@ -60,7 +67,12 @@ export default function Banner() {
 
         {/* button */}
         <div className={styles.buttonContainer}>
-          <button className={`${styles.button} ${styles.playButton}`}>
+          <button
+            className={`${styles.button} ${styles.playButton}`}
+            onClick={handlePlay}
+            type="button"
+            aria-label="Play trailer"
+          >
             <Play size={30} /> Play
           </button>
           <button className={styles.button}>

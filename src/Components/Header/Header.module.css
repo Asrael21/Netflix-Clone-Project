@@ -326,17 +326,95 @@
   border: none;
   cursor: pointer;
 
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .dropdownItem:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+.profileUserHeader {
+  padding: 12px 16px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.userEmail {
+  font-size: 12px;
+  color: #8c8c8c;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.signOutButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ff6b6b;
+}
+
+.signOutButton:hover {
+  background-color: rgba(229, 9, 20, 0.15);
+  color: #ff4d4f;
+}
+
 .dropdownDivider {
-  margin: 8px 0;
+  margin: 6px 0;
   border: none;
   border-top: 1px solid #404040;
+}
+
+.headerSignInBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  background-color: var(--netflix-red, #e50914);
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.headerSignInBtn:hover {
+  background-color: #c10712;
+}
+
+.mobileAuthRow {
+  margin-top: 8px;
+  border-top: 1px solid #2a2a2a;
+  padding-top: 8px;
+}
+
+.mobileSignIn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--netflix-red, #e50914);
+  font-weight: 600;
+}
+
+.mobileSignOut {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
 }
 
 /* ── Keyboard focus ──────────────────────────────────────── */
